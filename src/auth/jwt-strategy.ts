@@ -14,6 +14,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             username: 'hoantrinh07',
             tenant: 'Hoang07',
             password: payload.password,
+            isAdmin: true,
         };
     }
 }

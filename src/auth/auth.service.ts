@@ -8,6 +8,8 @@ export class AuthService {
     constructor(private jwtService: JwtService) {}
 
     async validateCreds(username: string, password: string): Promise<boolean> {
+        console.log('validating credentials', username, password);
+
         let isAdmin = false;
 
         if (username === 'hoangtrinh07' && password === 'hoangtrinh') {

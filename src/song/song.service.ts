@@ -62,4 +62,24 @@ export class SongService {
             },
         });
     }
+
+    async deleteById(id) {
+        return this.song.delete({
+            id: id,
+        });
+    }
+
+    async updateById(id, data) {
+        const song = await this.song.findOne({
+            where: {
+                id: id,
+            },
+        });
+
+        return this.song.update(id, {
+            ...song,
+            name: data.name,
+            des: data.des,
+        });
+    }
 }

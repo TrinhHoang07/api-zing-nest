@@ -21,37 +21,13 @@ export class Song extends BaseEntity {
         type: 'nvarchar',
         default: '',
     })
-    src?: string;
-
-    @Column({
-        type: 'nvarchar',
-        default: '',
-    })
-    ph: string;
-
-    @Column({
-        type: 'int',
-        default: 0,
-    })
-    count: number;
+    src: string;
 
     @Column({
         type: 'nvarchar',
         default: '',
     })
     date: string;
-
-    @Column({
-        type: 'nvarchar',
-        default: '',
-    })
-    time: string;
-
-    @Column({
-        type: 'nvarchar',
-        default: '',
-    })
-    type: string;
 
     @Column({
         type: 'nvarchar',
@@ -66,22 +42,16 @@ export class Song extends BaseEntity {
     color: string;
 
     @Column({
-        type: 'boolean',
-        default: false,
+        type: 'nvarchar',
+        default: '',
     })
-    isBolero: boolean;
+    time: string;
 
     @Column({
-        type: 'boolean',
-        default: false,
+        type: 'nvarchar',
+        default: '',
     })
-    isCorner: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isEvents: boolean;
+    type: string;
 
     @Column({
         type: 'boolean',
@@ -106,78 +76,6 @@ export class Song extends BaseEntity {
         default: false,
     })
     isListZing: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isMixtape: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isNewSongEveryDay: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isNewSongN2: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isNewSong: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isOutStandingTop100: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isPodCard: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTodayChoice: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTop100: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTop100Asian: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTop100HT: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTop100USUK: boolean;
-
-    @Column({
-        type: 'boolean',
-        default: false,
-    })
-    isTop100VN: boolean;
 
     @Column({
         type: 'boolean',

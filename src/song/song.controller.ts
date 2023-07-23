@@ -14,6 +14,8 @@ export class SongController {
 
     @Post('/create')
     async createSong(@Body() data: Song) {
+        console.log('data: ', data);
+
         return await this.songService.createSong(data);
     }
 

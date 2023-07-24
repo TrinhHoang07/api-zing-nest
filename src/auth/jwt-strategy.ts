@@ -1,8 +1,9 @@
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
+import { AuthService } from './auth.service';
 
 export class JwtStrategy extends PassportStrategy(Strategy) {
-    constructor() {
+    constructor(private authService: AuthService) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             secretOrKey: '12345@@@@#2',
@@ -10,11 +11,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(payload: any) {
-        return {
-            username: 'hoantrinh07',
-            tenant: 'Hoang07',
-            password: payload.password,
-            isAdmin: true,
-        };
+        if (payload.username === 'hoangtrinh07' && payload.password === 'hoangtrinh') {
+            return {
+                ...payload,
+                isAdmin: true,
+            };
+        } else {
+            return {
+                ...payload,
+                isAdmin: false,
+            };
+        }
     }
 }

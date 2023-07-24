@@ -8,6 +8,8 @@ import { TypeOrmConfigAsync } from './config/typeorm.config';
 import { SongModule } from './song/song.module';
 import { UserModule } from './user/user.module';
 import { PlaylistModule } from './playlist/playlist.module';
+import { PlaylistSongModule } from './playlist_song/playlist_song.module';
+import { LoveSongModule } from './loves_song/loves_song.module';
 
 @Module({
     imports: [
@@ -17,6 +19,8 @@ import { PlaylistModule } from './playlist/playlist.module';
         AuthModule,
         UserModule,
         PlaylistModule,
+        PlaylistSongModule,
+        LoveSongModule,
     ],
     controllers: [AppController],
     providers: [AppService],

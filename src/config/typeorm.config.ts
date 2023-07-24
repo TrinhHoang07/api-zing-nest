@@ -1,6 +1,8 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { LoveSong } from 'src/loves_song/loves_song.entity';
 import { Playlist } from 'src/playlist/playlist.entity';
+import { PlaylistSong } from 'src/playlist_song/playlist_song.entity';
 import { Song } from 'src/song/song.entity';
 import { User } from 'src/user/user.entity';
 
@@ -19,7 +21,7 @@ export default class TypeOrmConfig {
             username: configService.get<string>('DB_USERNAME'),
             password: configService.get<string>('DB_PASSWORD'),
             database: configService.get<string>('DB_NAME'),
-            entities: [Song, User, Playlist],
+            entities: [Song, User, Playlist, PlaylistSong, LoveSong],
             synchronize: true,
         };
     }

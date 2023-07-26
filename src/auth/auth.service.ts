@@ -57,4 +57,23 @@ export class AuthService {
             }),
         };
     }
+
+    async login(username: string, password: string) {
+        const user = await this.userService.findUserByNameAndPassword(username, password);
+
+        if (user) {
+            return {
+                id: user.id,
+                name: user.name,
+                avatar: user.avatar,
+                isAdmin: false,
+                access_token: this.jwtService.sign({
+                    username: user.name,
+                    password: user.password,
+                }),
+            };
+        }
+
+        throw new BadRequestException();
+    }
 }

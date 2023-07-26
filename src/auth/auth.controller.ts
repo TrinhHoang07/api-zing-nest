@@ -12,7 +12,7 @@ export class AuthController {
     @Post('/login')
     async login(@Request() req) {
         console.log('body', req.body);
-        return this.authService.generateToken(req.body);
+        return this.authService.login(req.body.username, req.body.password);
     }
 
     @UsePipes(new ValidationPipe())

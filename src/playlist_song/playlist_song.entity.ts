@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Playlist } from 'src/playlist/playlist.entity';
 import { Song } from 'src/song/song.entity';
 import {
@@ -22,12 +23,18 @@ export class PlaylistSong extends BaseEntity {
     @ManyToOne(() => Playlist, (playlist) => playlist.id)
     playlist_: number;
 
-    @CreateDateColumn()
+    @CreateDateColumn({
+        select: false,
+    })
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({
+        select: false,
+    })
     updated_at: Date;
 
-    @DeleteDateColumn()
+    @DeleteDateColumn({
+        select: false,
+    })
     deleted_at: Date;
 }

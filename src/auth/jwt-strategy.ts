@@ -1,6 +1,7 @@
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { AuthService } from './auth.service';
+import { UserService } from 'src/user/user.service';
 
 export class JwtStrategy extends PassportStrategy(Strategy) {
     constructor(private authService: AuthService) {

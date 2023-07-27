@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UsePipes, ValidationPipe, UseGuards, Get } from '@nestjs/common';
+import { Controller, Post, Body, UsePipes, ValidationPipe, UseGuards, Get, Param } from '@nestjs/common';
 import { PlaylistService } from './playlist.service';
 import { PlaylistCreateDto } from './playlist-create.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
@@ -19,5 +19,11 @@ export class PlaylistController {
     @Get('/all')
     async getAll(): Promise<Playlist[]> {
         return await this.playlistService.getAllPlaylists();
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Get('/playlist/:id')
+    async getPlaylistById(@Param('id') id: string): Promise<Playlist[]> {
+        return await this.playlistService.getPlaylistByUserId(+id);
     }
 }

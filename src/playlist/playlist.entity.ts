@@ -1,9 +1,11 @@
+import { User } from 'src/user/user.entity';
 import {
     BaseEntity,
     Column,
     CreateDateColumn,
     DeleteDateColumn,
     Entity,
+    ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm';
@@ -15,6 +17,9 @@ export class Playlist extends BaseEntity {
 
     @Column()
     name: string;
+
+    @ManyToOne(() => User, (user) => user.id)
+    user_: number;
 
     @Column({
         type: 'nvarchar',

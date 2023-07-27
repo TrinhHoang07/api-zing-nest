@@ -12,6 +12,14 @@ export class PlaylistService {
         return await this.playlistEntity.find();
     }
 
+    async getPlaylistByUserId(userId: number) {
+        return await this.playlistEntity
+            .createQueryBuilder('playlist')
+            .innerJoin('user', 'u', 'u.id=playlist.user_id')
+            .where(`u.id=${userId}`)
+            .getRawMany();
+    }
+
     async createPlaylist(data: PlaylistCreateDto) {
         const playlist = new Playlist();
         playlist.name = data.name;

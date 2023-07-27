@@ -15,6 +15,8 @@ export class PlaylistSongController {
     @UseGuards(JwtAuthGuard)
     @Post('/add-playlist-song')
     async addPlaylistSong(@Body() data: { song_id: number; playlist_id: number }) {
+        console.log(data);
+
         return await this.playlistSongService.addPlaylistSong(data);
     }
 }

@@ -15,6 +15,21 @@ export class PlaylistSongService {
         return await this.playlistSong.save(playlist);
     }
 
+    async addPlaylistSongByIds(data: { song_id: number; playlist_ids: number[] }) {
+        for (let index = 0; index < data.playlist_ids.length; index++) {
+            const playlist = new PlaylistSong();
+            playlist.song_ = data.song_id;
+            playlist.playlist_ = data.playlist_ids[index];
+
+            await this.playlistSong.save(playlist);
+        }
+
+        return {
+            message: 'success',
+            code: 201,
+        };
+    }
+
     async getPlaylistSongById(id: number): Promise<any> {
         return await this.playlistSong
             .createQueryBuilder('playlistSong')

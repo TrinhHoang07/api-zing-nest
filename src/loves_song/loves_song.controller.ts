@@ -6,6 +6,7 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 export class LoveSongController {
     constructor(private loveSongService: LoveSongService) {}
 
+    @UseGuards(JwtAuthGuard)
     @Get('/love-song/:id')
     async getLoveSongById(@Param('id') id: string) {
         return this.loveSongService.getLoveSongByUserId(+id);

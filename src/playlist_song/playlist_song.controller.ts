@@ -19,4 +19,9 @@ export class PlaylistSongController {
 
         return await this.playlistSongService.addPlaylistSong(data);
     }
+
+    @Post('/add-playlist-song-ids')
+    async addPlaylistSongByIds(@Body() data: { song_id: number; playlist_ids: number[] }) {
+        return await this.playlistSongService.addPlaylistSongByIds(data);
+    }
 }

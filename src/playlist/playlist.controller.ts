@@ -21,6 +21,11 @@ export class PlaylistController {
         return await this.playlistService.getAllPlaylists();
     }
 
+    @Get('/all-admin')
+    async getAllPlaylistAndIdUser() {
+        return await this.playlistService.getAllPlaylistAndIdUser();
+    }
+
     @UseGuards(JwtAuthGuard)
     @Get('/playlist/:id')
     async getPlaylistById(@Param('id') id: string): Promise<Playlist[]> {

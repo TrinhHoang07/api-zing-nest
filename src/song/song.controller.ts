@@ -49,7 +49,6 @@ export class SongController {
         return await this.songService.listMV();
     }
 
-    @UseGuards(JwtAuthGuard)
     @Delete('/delete')
     async deletById(@Body() data) {
         return await this.songService.deleteById(data.id);

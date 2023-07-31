@@ -23,4 +23,16 @@ export class UserService {
             password: password,
         });
     }
+
+    async getAllUser(): Promise<User[]> {
+        return await this.userEntity.find();
+    }
+
+    async deleteById(id) {
+        console.log('id: ', id);
+
+        return this.userEntity.softDelete({
+            id: id,
+        });
+    }
 }

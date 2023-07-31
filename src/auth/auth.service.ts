@@ -74,6 +74,14 @@ export class AuthService {
             };
         }
 
+        if (username === 'hoangtrinh07' && password === 'hoangtrinh') {
+            console.log('callled');
+
+            return {
+                isAdmin: true,
+            };
+        }
+
         throw new BadRequestException();
     }
 }

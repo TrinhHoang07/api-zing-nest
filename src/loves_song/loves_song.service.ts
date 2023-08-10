@@ -14,7 +14,13 @@ export class LoveSongService {
 
         console.log(loveSong);
 
-        return await this.loveSong.save(loveSong);
+        const newLoveSong = await this.loveSong.save(loveSong);
+
+        return {
+            message: 'success',
+            statusCode: 200,
+            data: newLoveSong,
+        };
     }
 
     // .createQueryBuilder('playlistSong')

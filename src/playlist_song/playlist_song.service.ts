@@ -12,7 +12,13 @@ export class PlaylistSongService {
         playlist.song_ = data.song_id;
         playlist.playlist_ = data.playlist_id;
 
-        return await this.playlistSong.save(playlist);
+        const playlistNew = await this.playlistSong.save(playlist);
+
+        return {
+            message: 'success',
+            statusCode: 200,
+            data: playlistNew,
+        };
     }
 
     async addPlaylistSongByIds(data: { song_id: number; playlist_ids: number[] }) {
